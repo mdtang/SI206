@@ -32,6 +32,7 @@ for word in text2:
 # Printing original text - first 150 tokens
 print (''.join(original_words)) 
 
+# POS tagging first 150 tokens of text2
 tagged_tokens = nltk.pos_tag(text2)
 
 # Creating dictionary for different POS
@@ -51,7 +52,8 @@ for (word, tag) in tagged_tokens:
 	if tag not in substitution_probabilities or random.random() > substitution_probabilities[tag]:
 		final_words.append(spaced(word))
 	else:
-		new_word = input("Please enter %s:\n" % (tagmap[tag])) # User inputting string with newline
+		# User inputting string with newline
+		new_word = input("Please enter %s:\n" % (tagmap[tag]))
 		final_words.append(spaced(new_word))
 
 print (''.join(final_words))
