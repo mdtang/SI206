@@ -9,7 +9,51 @@
 # Deliverables:
 # 1) Print the orginal text (150 tokens)
 # 1) Print the new text
-print("START*******")
 
+import nltk
+import random
+from nltk.book import *
+
+print("START*******\n\n")
+
+def spaced(word):
+	if word in [",", ".", "?", "!", ":"]:
+		return word
+	else:
+		return " " + word
+
+text2 = text2[:150]
+
+original_words = []
+
+for word in text2:
+	original_words.append(spaced(word))
+
+# Printing original text - first 150 tokens
+print (''.join(original_words)) 
+
+tagged_tokens = nltk.pos_tag(text2)
+
+# Creating dictionary for different POS
+tagmap = {
+	"NN":"a noun",
+	"NNS":"a plural noun",
+	"VB":"a verb",
+	"JJ":"an adjective",
+	'RB':'an adverb',
+	'DT':'a determiner'
+}
+substitution_probabilities = {"NN":.15,"NNS":.15,"VB":.1,"JJ":.1,'RB':.1,'DT':.1}
+
+final_words = []
+
+for (word, tag) in tagged_tokens:
+	if tag not in substitution_probabilities or random.random() > substitution_probabilities[tag]:
+		final_words.append(spaced(word))
+	else:
+		new_word = input("Please enter %s:\n" % (tagmap[tag])) # User inputting string with newline
+		final_words.append(spaced(new_word))
+
+print (''.join(final_words))
 
 print("\n\nEND*******")
