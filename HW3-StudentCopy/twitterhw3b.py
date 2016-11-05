@@ -36,7 +36,8 @@ for tweet in public_tweets:
     numtweets += 1
     lst_pol.append(analysis.sentiment.polarity)
     lst_sub.append(analysis.sentiment.subjectivity)
-print ('Average polarity:', sum(lst_pol) / numtweets, 'Average subjectivity:', sum(lst_sub) / numtweets)
+print ('Average polarity:', sum(lst_pol) / numtweets, 
+	   'Average subjectivity:', sum(lst_sub) / numtweets)
 
 # print ('Number of tweets:', numtweets, 'Total polarity:', sum(lst_pol),'Total subjectivity:', sum(lst_sub))
 
