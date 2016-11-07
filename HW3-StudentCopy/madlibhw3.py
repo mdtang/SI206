@@ -30,7 +30,7 @@ for word in text2:
 	original_words.append(spaced(word))
 
 # Printing original text - first 150 tokens
-print (''.join(original_words)) 
+print ("Original text2\n",''.join(original_words)) 
 
 # POS tagging first 150 tokens of text2
 tagged_tokens = nltk.pos_tag(text2)
@@ -56,6 +56,6 @@ for (word, tag) in tagged_tokens:
 		new_word = input("Please enter %s:\n" % (tagmap[tag]))
 		final_words.append(spaced(new_word))
 
-print (''.join(final_words))
+print ("New text2\n",''.join(final_words))
 
 print("\n\nEND*******")
