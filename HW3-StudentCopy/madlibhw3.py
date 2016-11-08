@@ -27,6 +27,7 @@ text2 = text2[:150]
 original_words = []
 
 for word in text2:
+	# Adding spaces only words and not punctuation
 	original_words.append(spaced(word))
 
 # Printing original text - first 150 tokens
