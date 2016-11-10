@@ -25,9 +25,9 @@ soup = BeautifulSoup(html, 'html.parser')
 # Searching for text that includes the word student
 students = soup.find_all(text=re.compile('student'))
 
-
 for line in students:
 	replace = line.replace('student', 'AMAZING student')
+	# Using replace_with function from bs4 doc
 	line.replace_with(replace)
 
 for img in soup.find_all('img'):
